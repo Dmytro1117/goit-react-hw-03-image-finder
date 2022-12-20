@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FiSearch } from 'react-icons/fi';
+import { ImGithub } from 'react-icons/im'; 
 import './Searchbar.css';
 import PropTypes from 'prop-types';
 
@@ -29,7 +29,7 @@ export class Searchbar extends Component {
         <form onSubmit={this.handleSubmit} className="SearchForm">
           <button type="submit" className="SearchForm-button">
             <span>
-              <FiSearch size={25} stroke="#3f51b5" />
+              <ImGithub size={25} stroke="#2de63c99" />
             </span>
           </button>
 
