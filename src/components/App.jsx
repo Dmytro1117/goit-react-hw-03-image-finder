@@ -61,7 +61,7 @@ export class App extends Component {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 
- 
+
   openModal = largeImageURL => {
     console.log(largeImageURL);
     this.setState({
