@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { fetchImages } from './services/api';
+import { fetchImages } from './api/api';
 import { Searchbar } from './Searchbar/Searchbar';
 import { Loader } from './Loader/Loader';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
-import { animateScroll } from 'react-scroll';
 import { Modal } from './Modal/Modal';
 
 export class App extends Component {
@@ -22,8 +21,8 @@ export class App extends Component {
   };
 
   componentDidUpdate(_, prevState) {
-    console.log(prevState.page);
-    console.log(this.state.page);
+    // console.log(prevState.page);
+    // console.log(this.state.page);
     const { searchQuery, page } = this.state;
     if (prevState.searchQuery !== searchQuery || prevState.page !== page) {
       this.getImages(searchQuery, page);
@@ -60,17 +59,9 @@ export class App extends Component {
 
   onloadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
-    this.scrollOnMoreButton();
   };
 
-  scrollOnMoreButton = () => {
-    animateScroll.scrollToBottom({
-      duration: 1000,
-      delay: 10,
-      smooth: 'linear',
-    });
-  };
-
+ 
   openModal = largeImageURL => {
     console.log(largeImageURL);
     this.setState({

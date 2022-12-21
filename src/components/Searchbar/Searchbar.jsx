@@ -17,7 +17,7 @@ export class Searchbar extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.searchQuery.trim() === '') {
-      return alert('Please enter something :)');
+      return alert('Please enter parametr searching');
     }
     this.props.onSubmit(this.state.searchQuery);
     this.setState({ searchQuery: '' });
@@ -27,12 +27,6 @@ export class Searchbar extends Component {
     return (
       <header className="Searchbar">
         <form onSubmit={this.handleSubmit} className="SearchForm">
-          <button type="submit" className="SearchForm-button">
-            <span>
-              <ImGithub size={25} stroke="#2de63c99" />
-            </span>
-          </button>
-
           <input
             className="SearchForm-input "
             type="text"
@@ -43,6 +37,11 @@ export class Searchbar extends Component {
             value={this.state.searchQuery}
             onChange={this.handleChange}
           />
+           <button type="submit" className="SearchForm-button">
+            <span>
+              <ImGithub size={30} />
+            </span>
+          </button>
         </form>
       </header>
     );
