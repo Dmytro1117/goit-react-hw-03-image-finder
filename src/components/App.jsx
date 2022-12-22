@@ -35,7 +35,7 @@ export class App extends Component {
     try {
       const { hits, totalHits} = await fetchImages(query, page);
       this.setState(prevState => ({
-        images: [...prevState.images, ...hits],
+        images: [...hits, ...prevState.images ],
         loadMore: this.state.page< Math.ceil(totalHits / this.state.per_page),
       }));
     } catch (error) {
