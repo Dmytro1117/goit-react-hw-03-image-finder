@@ -21,8 +21,6 @@ export class App extends Component {
   };
 
   componentDidUpdate(_, prevState) {
-    // console.log(prevState.page);
-    // console.log(this.state.page);
     const { searchQuery, page } = this.state;
     if (prevState.searchQuery !== searchQuery || prevState.page !== page) {
       this.getImages(searchQuery, page);
@@ -35,11 +33,10 @@ export class App extends Component {
       return;
     }
     try {
-      const { hits, totalHits } = await fetchImages(query, page);
-      console.log(hits, totalHits);
+      const { hits, totalHits} = await fetchImages(query, page);
       this.setState(prevState => ({
         images: [...prevState.images, ...hits],
-        loadMore: this.state.page < Math.ceil(totalHits / this.state.per_page),
+        loadMore: this.state.page< Math.ceil(totalHits / this.state.per_page),
       }));
     } catch (error) {
       this.setState({ error: error.message });
@@ -63,7 +60,6 @@ export class App extends Component {
 
 
   openModal = largeImageURL => {
-    console.log(largeImageURL);
     this.setState({
       showModal: true,
       largeImageURL: largeImageURL,
@@ -77,19 +73,19 @@ export class App extends Component {
   };
 
   render() {
-    const { images, isLoading, loadMore, page, showModal, largeImageURL } =
-      this.state;
+    const { images, isLoading, loadMore, showModal, largeImageURL} = this.state;
+
     return (
       <>
         <Searchbar onSubmit={this.formSubmit} />
-
+        
         {isLoading ? (
           <Loader />
         ) : (
           <ImageGallery images={images} openModal={this.openModal} />
         )}
 
-        {loadMore && <Button onloadMore={this.onloadMore} page={page} />}
+        {loadMore && <Button onloadMore={this.onloadMore} />}
 
         {showModal && (
           <Modal largeImageURL={largeImageURL} onClose={this.closeModal} />

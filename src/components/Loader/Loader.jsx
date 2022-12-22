@@ -6,15 +6,15 @@ export const Loader = () => {
     <div className="Loader">
       <ThreeCircles
          height="100"
-  width="100"
-  color="#3581c8d4"
-  wrapperStyle={{}}
-  wrapperClass=""
-  visible={true}
-  ariaLabel="three-circles-rotating"
-  outerCircleColor=""
-  innerCircleColor=""
-  middleCircleColor=""
+          width="100"
+          color="#3581c8d4"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="three-circles-rotating"
+          outerCircleColor=""
+          innerCircleColor=""
+          middleCircleColor=""
       />
     </div>
   );

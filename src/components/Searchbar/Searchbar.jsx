@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ImGithub } from 'react-icons/im'; 
 import './Searchbar.css';
 import PropTypes from 'prop-types';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export class Searchbar extends Component {
   state = {
@@ -17,7 +18,7 @@ export class Searchbar extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.searchQuery.trim() === '') {
-      return alert('Please enter parametr searching');
+      return Notify.warning('Please enter something in the input field');
     }
     this.props.onSubmit(this.state.searchQuery);
     this.setState({ searchQuery: '' });
@@ -47,6 +48,8 @@ export class Searchbar extends Component {
     );
   }
 }
+
+
 Searchbar.propTypes = {
   onSubmit: PropTypes.func,
 };
