@@ -13,5 +13,5 @@
 
 .Modal {
   max-width: 800px;
-  z-index: 1200;
+  z-index: 100;
 }
